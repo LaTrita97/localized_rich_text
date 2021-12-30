@@ -11,29 +11,74 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+A flutter plugin to facilitate the localization of a RichText.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Install the library in your `pubspec.yaml`.
 
 ```dart
-const like = 'sample';
+dependencies:
+  localized_rich_text: ^0.0.1
 ```
 
-## Additional information
+## Usage
+```dart
+final textToLocalize = "Hi #name, how are you?";
+final userName = "Jhon";
+...
+LocalizedRichText(
+  text: textToLocalize,
+  defaultTextStyle: Theme.of(context).textTheme.bodyText1!,
+  keys: [
+    LocalizedRichTextKey(
+      key: '#name',
+      value: userName,
+      textStyle: Theme.of(context).textTheme.subtitle1!,
+    ),
+  ],
+)
+```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+## Parameters explanation
+
+#### text </br>
+This must be the `String` to localize.</br>
+The `dynamic` values inside the <strong><em>text</em></strong> have to be **unique**,
+you can mark them with a special character, or you can use a unique value.
+</br>
+</br>
+The string could be:
+```dart
+final textToLocalize = "Hi #name, how are you?";
+```
+or
+```dart
+AppLocalizations.of(context)!.title,
+```
+For more info about `internationalization` you can check the
+[flutter documentation](https://docs.flutter.dev/development/accessibility-and-localization/internationalization).
+
+#### defaultTextStyle </br>
+This is the `TextStyle` used for the static words.
+
+#### keys </br>
+This is the `List` that has to contain the `dynamic` values.
+</br>
+Each `dynamic` value has to be passed like an **LocalizedRichTextKey** object.
+</br>
+This list cannot be `empty`.
+</br>
+It could be:
+```dart
+LocalizedRichText(
+  ...,
+  keys: [
+    LocalizedRichTextKey(
+      key: '#name',
+      value: userName,
+      textStyle: Theme.of(context).textTheme.subtitle1!,
+    ),
+  ],
+)
+```
