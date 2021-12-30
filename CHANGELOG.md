@@ -1,3 +1,3 @@
 ## 0.0.1
 
-- TODO: Initial version
+- Initial version
