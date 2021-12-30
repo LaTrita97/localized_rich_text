@@ -13,7 +13,7 @@ and the Flutter guide for
 
 A flutter plugin to facilitate the localization of a RichText.
 
-## Getting startåed
+## Getting started
 
 Install the library in your `pubspec.yaml`.
 
