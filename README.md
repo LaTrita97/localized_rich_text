@@ -19,7 +19,7 @@ Install the library in your `pubspec.yaml`.
 
 ```dart
 dependencies:
-  localized_rich_text: ^0.0.1
+  localized_rich_text: ^0.0.2
 ```
 
 ## Usage
@@ -77,7 +77,11 @@ Each `dynamic` value has to be passed like an **LocalizedRichTextKey** object.
 </br>
 This list cannot be `empty`.
 </br>
-It could be:
+</br>
+The `keys` will be ordered by the order in which they are been inserted in the `String` to localize.
+</br>
+This means that the order in which you pass the `keys` inside the `keys array` isn't important.
+</br>
 
 ```dart
 LocalizedRichText(

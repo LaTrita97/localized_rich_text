@@ -1,6 +1,7 @@
 library localized_rich_text;
 
 import 'package:flutter/material.dart';
+import 'package:localized_rich_text/extensions.dart';
 
 /// `RichText` for dynamic `String` to localize.
 ///
@@ -130,8 +131,9 @@ class LocalizedRichText extends StatelessWidget {
 
     //Text to localize
     String localizedText = text;
+    final _keys = keys.orderedByText(text);
 
-    for (final localizedKey in keys) {
+    for (final localizedKey in _keys) {
       //Key dynamic value
       final _key = localizedKey.key;
 
@@ -157,7 +159,7 @@ class LocalizedRichText extends StatelessWidget {
       final textAfterTheKey = localizedText.split(_key).last;
 
       //If is the last Key, we control if there is a String after her
-      if (localizedKey == keys.last) {
+      if (localizedKey == _keys.last) {
         //Add the textAfterTheKey if present
         if (textAfterTheKey.isNotEmpty) {
           _addTextSpan(
