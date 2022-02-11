@@ -144,7 +144,7 @@ class LocalizedRichText extends StatelessWidget {
       if (textBeforeTheKey.isNotEmpty) {
         _addTextSpan(
           textSpans,
-          textBeforeTheKey.trimLeft(),
+          textBeforeTheKey,
           defaultTextStyle,
         );
       }
@@ -164,7 +164,7 @@ class LocalizedRichText extends StatelessWidget {
         if (textAfterTheKey.isNotEmpty) {
           _addTextSpan(
             textSpans,
-            textAfterTheKey.trimLeft(),
+            textAfterTheKey,
             defaultTextStyle,
           );
         }

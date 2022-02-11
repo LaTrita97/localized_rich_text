@@ -46,12 +46,16 @@ class _MyHomePageState extends State<MyHomePage> {
             LocalizedRichTextKey(
               key: '#name',
               value: name,
-              textStyle: Theme.of(context).textTheme.subtitle1!,
+              textStyle: Theme.of(context).textTheme.subtitle1!.copyWith(
+                    fontStyle: FontStyle.italic,
+                  ),
             ),
             LocalizedRichTextKey(
               key: '#myName',
               value: myName,
-              textStyle: Theme.of(context).textTheme.subtitle1!,
+              textStyle: Theme.of(context).textTheme.subtitle1!.copyWith(
+                    fontStyle: FontStyle.italic,
+                  ),
             ),
           ],
         ),
