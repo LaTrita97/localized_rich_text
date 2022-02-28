@@ -1,6 +1,6 @@
 name: localized_rich_text
 description: A flutter plugin to facilitate the localization of a RichText
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/LaTrita97/localized_rich_text
 
 environment:

@@ -131,7 +131,10 @@ class LocalizedRichText extends StatelessWidget {
 
     //Text to localize
     String localizedText = text;
-    final _keys = keys.orderedByText(text);
+
+    final _keys = keys.orderedByText(
+      text.characters.toList(),
+    );
 
     for (final localizedKey in _keys) {
       //Key dynamic value
