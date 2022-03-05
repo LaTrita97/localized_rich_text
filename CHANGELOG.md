@@ -1,3 +1,7 @@
+## 0.0.5
+
+- Added web support 🎉
+
 ## 0.0.4
 
 - Fixed an issue on getting all the Keys, now you don't have to put a space between two keys within the text that you have to translate.
