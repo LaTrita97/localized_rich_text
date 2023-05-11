@@ -19,7 +19,7 @@ Install the library in your `pubspec.yaml`.
 
 ```dart
 dependencies:
-  localized_rich_text: ^0.0.5
+  localized_rich_text: ^0.0.6
 ```
 
 ## Usage
@@ -27,6 +27,13 @@ dependencies:
 ```dart
 final textToLocalize = "Hi #name, how are you?";
 final userName = "Jhon";
+
+final textSpanProperties = TextSpanProperties(
+    recognizer: TapGestureRecognizer()
+      ..onTap = () {
+        //Do something
+      },
+  );
 ...
 LocalizedRichText(
   text: textToLocalize,
@@ -36,6 +43,7 @@ LocalizedRichText(
       key: '#name',
       value: userName,
       textStyle: Theme.of(context).textTheme.subtitle1!,
+      textSpanProperties: textSpanProperties,
     ),
   ],
 )

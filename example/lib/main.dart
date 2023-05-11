@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:localized_rich_text/localized_rich_text.dart';
 
@@ -32,6 +33,13 @@ class _MyHomePageState extends State<MyHomePage> {
   final name = "Jhon";
   final myName = "Simon";
 
+  final textSpanProperties = TextSpanProperties(
+    recognizer: TapGestureRecognizer()
+      ..onTap = () {
+        //Do something
+      },
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,19 +49,20 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: LocalizedRichText(
           text: textToLocalize,
-          defaultTextStyle: Theme.of(context).textTheme.bodyText1!,
+          defaultTextStyle: Theme.of(context).textTheme.bodyLarge!,
           keys: [
             LocalizedRichTextKey(
               key: '#name',
               value: name,
-              textStyle: Theme.of(context).textTheme.subtitle1!.copyWith(
+              textStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontStyle: FontStyle.italic,
                   ),
+              textSpanProperties: textSpanProperties,
             ),
             LocalizedRichTextKey(
               key: '#myName',
               value: myName,
-              textStyle: Theme.of(context).textTheme.subtitle1!.copyWith(
+              textStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontStyle: FontStyle.italic,
                   ),
             ),

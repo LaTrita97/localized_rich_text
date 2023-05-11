@@ -1,5 +1,6 @@
 library localized_rich_text;
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:localized_rich_text/extensions.dart';
 
@@ -157,6 +158,7 @@ class LocalizedRichText extends StatelessWidget {
         textSpans,
         localizedKey.value,
         localizedKey.textStyle,
+        textSpanProperties: localizedKey.textSpanProperties,
       );
 
       final textAfterTheKey = localizedText.split(_key).last;
@@ -182,11 +184,19 @@ class LocalizedRichText extends StatelessWidget {
   void _addTextSpan(
     List<TextSpan> list,
     String text,
-    TextStyle textStyle,
-  ) {
+    TextStyle textStyle, {
+    TextSpanProperties? textSpanProperties,
+  }) {
     final textSpan = TextSpan(
       text: text,
       style: textStyle,
+      recognizer: textSpanProperties?.recognizer,
+      mouseCursor: textSpanProperties?.mouseCursor,
+      onEnter: textSpanProperties?.onEnter,
+      onExit: textSpanProperties?.onExit,
+      semanticsLabel: textSpanProperties?.semanticsLabel,
+      locale: textSpanProperties?.locale,
+      spellOut: textSpanProperties?.spellOut,
     );
     return list.add(textSpan);
   }
@@ -204,9 +214,45 @@ class LocalizedRichTextKey {
   /// This is the `TextStyle` of the `Key`.
   TextStyle textStyle;
 
+  /// This object contains all the properties that a `TextSpan` could have.
+  TextSpanProperties? textSpanProperties;
+
   LocalizedRichTextKey({
     required this.key,
     required this.value,
     required this.textStyle,
+    this.textSpanProperties,
+  });
+}
+
+/// Properties for the `LocalizedRichTextKey` `TextSpan`:
+///
+///```dart
+/// GestureRecognizer? recognizer;
+/// MouseCursor? mouseCursor;
+/// void Function(PointerEnterEvent)? onEnter;
+/// void Function(PointerExitEvent)? onExit;
+/// String? semanticsLabel;
+/// Locale? locale;
+/// bool? spellOut;
+///
+///```
+class TextSpanProperties {
+  GestureRecognizer? recognizer;
+  MouseCursor? mouseCursor;
+  void Function(PointerEnterEvent)? onEnter;
+  void Function(PointerExitEvent)? onExit;
+  String? semanticsLabel;
+  Locale? locale;
+  bool? spellOut;
+
+  TextSpanProperties({
+    this.recognizer,
+    this.mouseCursor,
+    this.onEnter,
+    this.onExit,
+    this.semanticsLabel,
+    this.locale,
+    this.spellOut,
   });
 }

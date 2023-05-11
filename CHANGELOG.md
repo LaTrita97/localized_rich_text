@@ -1,3 +1,9 @@
+## 0.0.6
+
+- Added `TextSpanProperties` to `LocalizedRichTextKey`.
+
+  This allows you to add `GestureRecognizer`, `MouseCursor`, `Function(PointerEnterEvent)? onEnter`, `Function(PointerExitEvent)? onExit`, `semanticsLabel`, `Locale` and `spellOut` to your custom `keys`.
+
 ## 0.0.5
 
 - Added web support 🎉
