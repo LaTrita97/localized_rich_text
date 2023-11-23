@@ -19,7 +19,7 @@ Install the library in your `pubspec.yaml`.
 
 ```dart
 dependencies:
-  localized_rich_text: ^0.0.6
+  localized_rich_text: ^0.0.7
 ```
 
 ## Usage

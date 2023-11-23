@@ -1,3 +1,9 @@
+## 0.0.7
+
+- Requires Dart `3.0` or later.
+- Requires Flutter `3.10.0` or later.
+- Updated `ext.kotlin_version` to `1.5.31` ([Bug fix](https://github.com/LaTrita97/localized_rich_text/issues/5)).
+
 ## 0.0.6
 
 - Added `TextSpanProperties` to `LocalizedRichTextKey`.

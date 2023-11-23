@@ -79,7 +79,7 @@ class LocalizedRichText extends StatelessWidget {
   final TextDirection? textDirection;
   final bool softWrap;
   final TextOverflow overflow;
-  final double textScaleFactor;
+  final TextScaler textScaler;
   final int? maxLines;
   final Locale? locale;
   final StrutStyle? strutStyle;
@@ -95,7 +95,7 @@ class LocalizedRichText extends StatelessWidget {
     this.textDirection,
     this.softWrap = true,
     this.overflow = TextOverflow.clip,
-    this.textScaleFactor = 1.0,
+    this.textScaler = TextScaler.noScaling,
     this.maxLines,
     this.locale,
     this.strutStyle,
@@ -114,7 +114,7 @@ class LocalizedRichText extends StatelessWidget {
       textDirection: textDirection,
       softWrap: softWrap,
       overflow: overflow,
-      textScaleFactor: textScaleFactor,
+      textScaler: textScaler,
       maxLines: maxLines,
       locale: locale,
       strutStyle: strutStyle,
